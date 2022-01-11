@@ -30,9 +30,6 @@ def print_board(board):
         print()
 
 
-print_board(board)
-
-
 def quit(user_input):
     if user_input.lower() == 'q':
         print("Thanks for playing")
@@ -67,7 +64,15 @@ def isnum(user_input):
     else:
         return True
 
-# def istaken(user_input):
+
+def istaken(coords, board):
+    row = coords[0]
+    col = coords[1]
+    if board[row][col] != "-":
+        print("This position is already taken.")
+        return True
+    else:
+        return False
 
 
 def coordinates(user_input):
@@ -88,3 +93,7 @@ while True:
         print("Please try again")
         continue
     user_input = int(user_input) - 1
+    coords = coordinates(user_input)
+    if istaken(coords, board):
+        print("Please try again.")
+        continue
