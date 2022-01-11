@@ -23,6 +23,7 @@ board = [
 ]
 
 user = True  # when true it refers to x, otherwise o
+turns = 0
 
 
 def print_board(board):
@@ -142,7 +143,7 @@ def check_diag(user, board):
         return False
 
 
-while True:
+while turns < 9:
     active_user = current_user(user)
     print_board(board)
     user_input = input(
@@ -162,4 +163,7 @@ while True:
         print(f"{active_user.upper()} won!")
         break
 
+    turns += 1
+    if turns == 9:
+        print("Tie!")
     user = not user
