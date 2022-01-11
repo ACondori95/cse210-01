@@ -67,6 +67,16 @@ def isnum(user_input):
     else:
         return True
 
+# def istaken(user_input):
+
+
+def coordinates(user_input):
+    row = int(user_input / 3)
+    col = user_input
+    if col > 2:
+        col = int(col % 3)
+    return (row, col)
+
 
 while True:
     print_board(board)
@@ -77,3 +87,4 @@ while True:
     if not check_input(user_input):
         print("Please try again")
         continue
+    user_input = int(user_input) - 1
